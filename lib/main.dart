@@ -23,7 +23,6 @@ void main() async {
   return runApp(MaterialApp(
     title: 'FIC Exercises',
     navigatorKey: Get.navigatorKey,
-    debugShowCheckedModeBanner: false,
     theme: ThemeData.dark(),
     home: const TrView(),
   ));
