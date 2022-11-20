@@ -36,7 +36,7 @@ class LtfmLoginView extends StatefulWidget {
                 label: "Password",
                 hint: "Your password",
                 obscure: true,
-                onChanged: (value) {},
+                onChanged: (value) => {},
               ),
 
               //! 3. Buat sebuah tombol,
