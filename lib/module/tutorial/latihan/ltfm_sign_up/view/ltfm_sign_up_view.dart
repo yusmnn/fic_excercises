@@ -33,7 +33,7 @@ class LtfmSignUpView extends StatefulWidget {
                 onChanged: (value) {},
               ),
               QTextField(
-                value: "123456",
+                value: "1234567",
                 label: "password",
                 hint: "Your Password",
                 obscure: true,
@@ -41,7 +41,7 @@ class LtfmSignUpView extends StatefulWidget {
               ),
 
               QTextField(
-                value: "123456",
+                value: "1234567",
                 hint: "Confirm password",
                 label: "Confirm Password",
                 obscure: true,
