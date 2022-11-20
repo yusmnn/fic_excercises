@@ -52,7 +52,9 @@ class LtfmLoginView extends StatefulWidget {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blueGrey,
                 ),
-                onPressed: () => controller.doLogin(),
+                onPressed: () {
+                  controller.doLogin();
+                },
               ),
             ],
           ),
