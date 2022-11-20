@@ -16,28 +16,56 @@ class LtsmVisibilityView extends StatefulWidget {
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(10.0),
-          child: Column(
-            children: const [
-              /*
-              ? Buat variabel visible di dalam State/Controller
-              ! bool visible = false;
+          child: Center(
+            child: Column(
+              children: [
+                /*
+                ? Buat variabel visible di dalam State/Controller
+                ! bool visible = false;
 
-              ? Tambahkan statement ini di dalam Column:
-              if(controller.loading)
-                Container(
-                  width: 100.0,
-                  height: 100.0,
-                  color: Colors.red,
+                ? Tambahkan statement ini di dalam Column:
+                if(controller.loading)
+                  Container(
+                    width: 100.0,
+                    height: 100.0,
+                    color: Colors.red,
+                  ),
+
+                ? Buat sebuah button, dan tambahkan kode ini di dalam event onPressed()
+                /*
+                controller.visible = controller.visible!;
+                controller.setState((){});
+                */
+                  
+                */
+
+                if (controller.loading)
+                  Container(
+                    width: 100.0,
+                    height: 100.0,
+                    color: Colors.red,
+                  ),
+                Text(
+                  "Visible: ${controller.visible}",
+                  style: const TextStyle(
+                    fontSize: 40.0,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-
-              ? Buat sebuah button, dan tambahkan kode ini di dalam event onPressed()
-              /*
-              controller.visible = controller.visible!;
-              controller.setState((){});
-              */
-                
-              */
-            ],
+                ElevatedButton.icon(
+                  icon: const Icon(Icons.add),
+                  label: const Text("Update"),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blueGrey,
+                    shape: const StadiumBorder(),
+                  ),
+                  onPressed: () {
+                    controller.visible = !controller.visible;
+                    controller.setState(() {});
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),
