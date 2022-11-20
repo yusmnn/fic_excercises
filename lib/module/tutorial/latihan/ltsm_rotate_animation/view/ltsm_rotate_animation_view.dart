@@ -16,46 +16,51 @@ class LtsmRotateAnimationView extends StatefulWidget {
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(10.0),
-          child: Column(
-            children: [
-              //TODO: Buat variabel animate di dalam State/Controller
-              // bool animate = false;
-              AnimatedRotation(
-                //TODO:
-                //jika animate == true, atur derajat rotasinya menjadi 90
-                //jika animate == false, atur opacity menjadi 0
-                turns: 15 / 360,
-                duration: const Duration(milliseconds: 2000),
-                child: Container(
-                  height: 100.0,
-                  width: 100.0,
-                  margin: const EdgeInsets.only(),
-                  decoration: BoxDecoration(
-                    color: Colors.red.withOpacity(1.0),
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(
-                        16.0,
+          child: Center(
+            child: Column(
+              children: [
+                //TODO: Buat variabel animate di dalam State/Controller
+                // bool animate = false;
+                AnimatedRotation(
+                  //TODO:
+                  //jika animate == true, atur derajat rotasinya menjadi 90
+                  //jika animate == false, atur opacity menjadi 0
+                  turns: ((controller.animate) ? 90 : 0) / 360,
+                  duration: const Duration(milliseconds: 2000),
+                  child: Container(
+                    height: 100.0,
+                    width: 100.0,
+                    margin: const EdgeInsets.only(),
+                    decoration: BoxDecoration(
+                      color: Colors.red.withOpacity(1.0),
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(
+                          16.0,
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-              const SizedBox(
-                height: 20.0,
-              ),
-              //TODO:
-              //di dalam event onPressed(),
-              //atur animate = true, jika nilai animate adalah false
-              //atur animate = false, jika nilai animate adalah true
-              ElevatedButton.icon(
-                icon: const Icon(Icons.animation),
-                label: const Text("Animate"),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blueGrey,
+                const SizedBox(
+                  height: 20.0,
                 ),
-                onPressed: () {},
-              ),
-            ],
+                //TODO:
+                //di dalam event onPressed(),
+                //atur animate = true, jika nilai animate adalah false
+                //atur animate = false, jika nilai animate adalah true
+                ElevatedButton.icon(
+                  icon: const Icon(Icons.animation),
+                  label: const Text("Animate"),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blueGrey,
+                  ),
+                  onPressed: () {
+                    controller.animate = !controller.animate;
+                    controller.setState(() {});
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),
