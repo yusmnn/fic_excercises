@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class QTextField extends StatefulWidget {
   final String label;
@@ -7,6 +8,13 @@ class QTextField extends StatefulWidget {
   final String? Function(String?)? validator;
   final bool obscure;
   final Function(String) onChanged;
+  final IconData? suffixIcon;
+  final TextInputType? keyboardType;
+  final int? minLines;
+  final int? maxLines;
+  final int? maxLength;
+  final List<TextInputFormatter>? inputFormatters;
+  final bool? expands;
 
   const QTextField({
     Key? key,
@@ -16,6 +24,13 @@ class QTextField extends StatefulWidget {
     this.hint,
     required this.onChanged,
     this.obscure = false,
+    this.suffixIcon = Icons.text_format,
+    this.keyboardType,
+    this.minLines,
+    this.maxLines,
+    this.inputFormatters,
+    this.maxLength = 20,
+    this.expands = false,
   }) : super(key: key);
 
   @override
@@ -33,8 +48,13 @@ class _QTextFieldState extends State<QTextField> {
     return TextFormField(
       initialValue: widget.value,
       validator: widget.validator,
-      maxLength: 20,
+      maxLength: widget.maxLength,
+      minLines: widget.minLines,
+      maxLines: widget.maxLines,
       obscureText: widget.obscure,
+      keyboardType: widget.keyboardType,
+      inputFormatters: widget.inputFormatters,
+      // expands: widget.expands!,
       decoration: InputDecoration(
         labelText: widget.label,
         labelStyle: const TextStyle(
@@ -45,8 +65,8 @@ class _QTextFieldState extends State<QTextField> {
             color: Colors.blueGrey,
           ),
         ),
-        suffixIcon: const Icon(
-          Icons.text_format,
+        suffixIcon: Icon(
+          widget.suffixIcon,
         ),
         helperText: widget.hint,
       ),
