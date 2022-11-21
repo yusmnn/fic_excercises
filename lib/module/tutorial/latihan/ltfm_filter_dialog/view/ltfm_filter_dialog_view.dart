@@ -78,10 +78,50 @@ class LtfmFilterDialogView extends StatefulWidget {
                           barrierDismissible: true,
                           builder: (BuildContext context) {
                             return AlertDialog(
+                              title: Text('Filter'),
+                              content: SingleChildScrollView(
+                                child: ListBody(
+                                  children: <Widget>[],
+                                ),
+                              ),
+                              actions: <Widget>[
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.blueGrey,
+                                  ),
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: Text("Filter"),
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                        */
+                        //! 2. Di dalam children dari ListBody,
+                        //! Tambahkan field2 ini:
+                        //? datepicker dengan label "from"
+                        //? datepicker dengan label "to"
+
+                        await showDialog<void>(
+                          context: context,
+                          barrierDismissible: true,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
                               title: const Text('Filter'),
                               content: SingleChildScrollView(
                                 child: ListBody(
-                                  children: const <Widget>[],
+                                  children: <Widget>[
+                                    QDatePicker(
+                                      label: "From",
+                                      onChanged: (form) {},
+                                    ),
+                                    QDatePicker(
+                                      label: "To",
+                                      onChanged: (to) {},
+                                    )
+                                  ],
                                 ),
                               ),
                               actions: <Widget>[
@@ -98,11 +138,6 @@ class LtfmFilterDialogView extends StatefulWidget {
                             );
                           },
                         );
-                        */
-                        //! 2. Di dalam children dari ListBody,
-                        //! Tambahkan field2 ini:
-                        //? datepicker dengan label "from"
-                        //? datepicker dengan label "to"
                       },
                     ),
                   ),
