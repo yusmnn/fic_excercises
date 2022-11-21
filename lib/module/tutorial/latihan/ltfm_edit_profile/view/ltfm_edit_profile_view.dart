@@ -50,6 +50,7 @@ class LtfmEditProfileView extends StatefulWidget {
                         value: "user@gmail.com",
                         label: "Email",
                         hint: "Your email",
+                        maxLines: 1,
                         onChanged: (value) {},
                       ),
                       QTextField(
@@ -57,6 +58,7 @@ class LtfmEditProfileView extends StatefulWidget {
                         label: "Password",
                         hint: "Your password",
                         obscure: true,
+                        maxLines: 1,
                         onChanged: (value) {},
                       ),
                     ],
