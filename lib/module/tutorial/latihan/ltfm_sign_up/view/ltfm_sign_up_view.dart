@@ -30,6 +30,7 @@ class LtfmSignUpView extends StatefulWidget {
                 value: "user@mail.com",
                 label: "Email",
                 hint: "Your email",
+                maxLines: 1,
                 onChanged: (value) {},
               ),
               QTextField(
@@ -37,6 +38,7 @@ class LtfmSignUpView extends StatefulWidget {
                 label: "password",
                 hint: "Your Password",
                 obscure: true,
+                maxLines: 1,
                 onChanged: (value) {},
               ),
 
@@ -45,6 +47,7 @@ class LtfmSignUpView extends StatefulWidget {
                 hint: "Confirm password",
                 label: "Confirm Password",
                 obscure: true,
+                maxLines: 1,
                 onChanged: (value) {},
               ),
 
