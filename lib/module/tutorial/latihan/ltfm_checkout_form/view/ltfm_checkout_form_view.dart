@@ -6,6 +6,25 @@ import 'package:example/core.dart';
 class LtfmCheckoutFormView extends StatefulWidget {
   const LtfmCheckoutFormView({Key? key}) : super(key: key);
 
+  static List<Map<String, dynamic>> paymentMethod = [
+    {
+      "label": "Cash",
+      "value": 1,
+    },
+    {
+      "label": "Credit Card",
+      "value": 2,
+    },
+    {
+      "label": "OVO",
+      "value": 3,
+    },
+    {
+      "label": "Dana",
+      "value": 4,
+    }
+  ];
+
   Widget build(context, LtfmCheckoutFormController controller) {
     controller.view = this;
 
@@ -236,6 +255,51 @@ class LtfmCheckoutFormView extends StatefulWidget {
                 },
               );
               */
+              QDropdownField(
+                label: "Payment method",
+                hint: " ",
+                validator: Validator.required,
+                items: paymentMethod,
+                onChanged: ((value, label) {}),
+              ),
+              ElevatedButton.icon(
+                icon: const Icon(Icons.check),
+                label: const Text("checkout"),
+                style: ElevatedButton.styleFrom(
+                  minimumSize: Size(MediaQuery.of(context).size.width, 40),
+                  backgroundColor: Colors.green,
+                ),
+                onPressed: () async {
+                  Navigator.pop(context);
+                  await showDialog<void>(
+                    context: context,
+                    barrierDismissible: true,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: const Text('Checkout success'),
+                        content: SingleChildScrollView(
+                          child: ListBody(
+                            children: const <Widget>[
+                              Text('Your order was placed!'),
+                            ],
+                          ),
+                        ),
+                        actions: <Widget>[
+                          ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.blueGrey,
+                            ),
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: const Text("Ok"),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                },
+              ),
             ],
           ),
         ),
