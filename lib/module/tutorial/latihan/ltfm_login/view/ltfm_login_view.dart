@@ -22,6 +22,7 @@ class LtfmLoginView extends StatefulWidget {
                 value: "user@gmail.com",
                 label: "Email",
                 hint: "Your email",
+                maxLines: 1,
                 onChanged: (value) {},
               ),
 
@@ -35,6 +36,7 @@ class LtfmLoginView extends StatefulWidget {
                 value: "123456",
                 label: "Password",
                 hint: "Your password",
+                maxLines: 1,
                 obscure: true,
                 onChanged: (value) => {},
               ),
